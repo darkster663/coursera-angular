@@ -50,3 +50,14 @@ input[type="text"] {
     transform: rotate(360deg);
   }
 }
+
+#message {
+  clear: both;
+  font-size: 1.2em;
+  color: red;
+}
+found-items span {
+  color: green;
+  font-weight: bold;
+  font-size: 1.3em;
+}
