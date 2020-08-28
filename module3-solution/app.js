@@ -28,17 +28,20 @@ function NarrowItDownController (MenuSearchService) {
   controller.notFound = false;
 
   controller.getMatchedMenuItems = function (searchTerm) {
-     var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
-     promise.then (function (response) {
-       controller.found = response;
-       if (controller.found.length > 0 || searchTerm=="") {
-         controller.notFound = false;
-       } else { controller.notFound = true; }
-     })
-     .catch (function (error) {
-       controller.notFound = true;
-     });
-  };
+    if (searchTerm !== "") {
+       var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
+       promise.then (function (response) {
+         controller.found = response;
+         if (controller.found.length > 0 || searchTerm=="") {
+           controller.notFound = false;
+         } else { controller.notFound = true;}
+       })
+       .catch (function (error) {
+         controller.notFound = true;
+       });
+    }
+    else {controller.notFound = true;controller.found=[];}
+  }
 
   controller.removeItem = function(itemIndex) {
     controller.found.splice(itemIndex, 1);
