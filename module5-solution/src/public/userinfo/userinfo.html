@@ -1,0 +1,13 @@
+<center><div ng-if="(userinfoCtrl.registrationData===undefined)">Not Signed Up Yet. <a ui-sref="signup">Sign up Now!</a></div></center>
+<div ng-if="!(userinfoCtrl.registrationData===undefined)">
+<center>
+  <span>First name: {{userinfoCtrl.registrationData.first_name}} </span> <br>
+  <span>Last name: {{userinfoCtrl.registrationData.last_name}} </span> <br>
+  <span>Email: {{userinfoCtrl.registrationData.email}} </span> <br>
+  <span>Phone: {{userinfoCtrl.registrationData.phone}} </span> <br>
+  <span>Favorite dish: {{userinfoCtrl.registrationData.dish_data.name}} </span> <br>
+  <img class="img-responsive" width="250" height="150" ng-src="{{userinfoCtrl.basePath}}/images/{{userinfoCtrl.registrationData.dish_data.short_name}}.jpg"
+  alt="{{userinfoCtrl.registrationData.dish_data.name}}">
+  <span>Description: {{userinfoCtrl.registrationData.dish_data.description}} </span> <br>
+</center>
+</div>
